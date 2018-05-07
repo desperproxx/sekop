@@ -1,0 +1,46 @@
+<?php
+
+namespace AppBundle\Entity;
+use JsonSerializable;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="stats_sales")
+ */
+class Stats_sales
+{
+    /**
+     * @ORM\Column(name="id", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Kassir", inversedBy="id")
+     * @ORM\Column(name="kassir_id", type="bigint")
+     */
+    private $kassir_id;
+
+       /**
+     * @ORM\Column(name="card_type", type="bigint")
+     */
+     private $card_type;
+
+     /**
+     * @ORM\Column(name="transcount", type="bigint")
+     */
+    private $transcount;
+
+     /**
+     * @ORM\Column(name="transsum", type="bigint")
+     */
+    private $transsum;
+
+}

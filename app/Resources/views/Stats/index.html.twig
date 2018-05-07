@@ -1,0 +1,53 @@
+{# app/Resources/views/blog/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+
+{% block title %}My cool blog posts{% endblock %}
+
+{% block body %}
+ {{ parent() }}
+
+
+ <div id="wrappers">
+            <div class="chart">
+                      <table id="data-table" border="1" cellpadding="10" cellspacing="0" summary="The effects of the zombie outbreak on the populations of endangered species from 2012 to 2016">
+                    <caption>Population in thousands</caption>
+                    <thead>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <th scope="col">Январь</th>
+                            <th scope="col">Февраль</th>
+                            <th scope="col">Март</th>
+                            <th scope="col">Апрель</th>
+                            <th scope="col">Май</th>
+                            <th scope="col">Июнь</th>
+                            <th scope="col">Июль</th>
+                            <th scope="col">Август</th>
+                            <th scope="col">Сентябрь</th>
+                            <th scope="col">Октябрь</th>
+                            <th scope="col">Ноябрь</th>
+                            <th scope="col">Декабрь</th>
+                                                                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>   {% set i=6 %}
+                     		  {% for inf in information %}
+                     		     <th scope="row">{{i}}</th>
+                       		  	{% for infa in inf %}
+                                <td>{{ infa.sum }}</td>
+                                {% set i=infa.type %}
+                                {% endfor %}
+                                </tr>
+                              {% endfor %} 
+                      
+                       
+                           </tbody>
+                </table>
+            </div>
+        </div>
+{% endblock %}
+ {% block javascripts %}
+  {{ parent() }}
+ 
+  {% endblock %}

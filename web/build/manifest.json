@@ -1,0 +1,7 @@
+{
+  "build/highcharts.js": "/build/highcharts.js",
+  "build/app.js": "/build/app.js",
+  "build/styletwig.css": "/build/styletwig.css",
+  "build/global.css": "/build/global.css",
+  "build/bootstrap.css": "/build/bootstrap.css"
+}

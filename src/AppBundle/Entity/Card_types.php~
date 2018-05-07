@@ -1,0 +1,45 @@
+<?php
+
+namespace AppBundle\Entity;
+use JsonSerializable;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="card_types")
+ */
+class Card_types
+{
+    /**
+     * @ORM\Column(name="id", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(name="card_num", type="bigint", nullable=true)
+     */
+    private $card_num;
+ 
+     /**
+     * @ORM\Column(name="price", type="bigint", nullable=true)
+     */
+    private $price;
+      /**
+     * @ORM\Column(name="sub_type", type="bigint")
+     */
+    private $sub_type;
+
+     /**
+    * @ORM\ManyToOne(targetEntity="Transport_type", inversedBy="id")
+     * @ORM\Column(name="transport_type", type="bigint", nullable=true)
+     */
+    private $transport_type;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $start_time;
+
+}

@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Test Application{% endblock %}</title>
+        {% block stylesheets %}
+                <link rel="stylesheet" href="{{ asset('build/bootstrap.css') }}"/>
+        {% endblock %}
+    </head>
+    <body>
+    <div class="header">
+                <center><h1>Система сбора и обработки статистики</h1></center>
+                 </div>
+    <div id="wrapper">
+         <div id="sidebar-wrapper">
+            {% block sidebar %}
+                 <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Start Bootstrap
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Shortcuts</a>
+                </li>
+                <li>
+                    <a href="#">Overview</a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+            {% endblock %}
+        </div>
+
+       
+            {% block body %}
+ <div id="page-content-wrapper">
+            <div class="container-fluid">
+             <div class="menu-wrapper">
+  <div class="hamburger-menu"></div>      
+</div>
+            </div>
+        </div>
+
+            {% endblock %}
+             {% block javascripts %}
+             <script type ="text/javascript" src="{{ asset('build/app.js') }}"></script>
+             {% endblock %}
+        </div>
+        </div>
+    </body>
+</html>

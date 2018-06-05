@@ -21,7 +21,12 @@ class Card_type
     * @ORM\Column(name="c_type", type="bigint")
      */
     private $c_type;
+    /**
+    * @ORM\Column(name="descr", type="string")
+     */
+    private $descr;
 
+    
 
 
     /**
@@ -56,5 +61,19 @@ class Card_type
     public function getCType()
     {
         return $this->c_type;
+    }
+
+        /**
+     * Set descr
+     *
+     * @param string $descr
+     *
+     * @return Card_type
+     */
+    public function setDescr($descr)
+    {
+        $this->descr = $descr;
+
+        return $this;
     }
 }

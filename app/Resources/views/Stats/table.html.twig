@@ -1,0 +1,73 @@
+{# app/Resources/views/blog/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+
+{% block title %}My cool blog posts{% endblock %}
+
+{% block body %}
+ {{ parent() }}
+<div class="tabs">
+    <ul>
+         {% if current_user.role == 'ROLE_STAT_LEAD' or current_user.role == 'ROLE_SUPER_USER'%}
+        <li>По годам</li>
+           {% endif %}
+        <li>За текущий месяц</li>
+        <li>Третья вкладка</li>
+    </ul>
+    <div>
+        <div>
+<table>
+<tr>
+<th></th>
+  <th>Каcсир</th>
+  <th>Количество проданных билетов</th>
+  <th>Сумма</th>
+</tr>
+{% for post in kassirs %}
+<tr>
+<td><div class="qwerty">{{ post.kassir_id }}</div></td>
+<td>{{ post.name }}</td>
+<td>{{ post.sum }}</td>
+<td>{{ post.summ }}</td>
+</tr>
+{% endfor %}
+</table>
+<div class="pagination">
+       {{ knp_pagination_render(kassirs) }} 
+    </div>
+        </div>
+        <div>
+<table>
+<tr>
+<th></th>
+  <th>Каcсир</th>
+  <th>Количество проданных билетов</th>
+  <th>Сумма</th>
+</tr>
+{% for post in monthkass %}
+<tr>
+<td><div class="qwerty">{{ post.kassir_id }}</div></td>
+<td>{{ post.name }}</td>
+<td>{{ post.sum }}</td>
+<td>{{ post.summ }}</td>
+</tr>
+{% endfor %}
+</table>
+<div class="pagination">
+       {{ knp_pagination_render(kassirs) }} 
+    </div>
+
+        </div>
+        <div>Третье содержимое</div>
+    </div>            
+</div> 
+
+<div id="per" class="period">
+	
+
+</div>
+{% endblock %}
+ {% block javascripts %}
+  {{ parent() }}
+
+  {% endblock %}

@@ -1,5 +1,7 @@
 {
   "build/highcharts.js": "/build/highcharts.js",
+  "build/transport.js": "/build/transport.js",
+  "build/pie.js": "/build/pie.js",
   "build/app.js": "/build/app.js",
   "build/styletwig.css": "/build/styletwig.css",
   "build/global.css": "/build/global.css",

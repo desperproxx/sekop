@@ -1,0 +1,18 @@
+AppBundle\Entity\Card_type:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\CardtypeRepository
+    id:
+        id:
+            type: bigint
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        c_type:
+            type: bigint
+        descr:
+             type: string
+             length: 100    
+           
+    lifecycleCallbacks: {  }

@@ -1,0 +1,36 @@
+AppBundle\Entity\Users:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\UsersRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        email:
+            type: string
+            length: '50'
+            unique: true
+        password:
+            type: string
+            length: '255'
+        salt:
+            type: string
+            length: '20'
+            nullable: true 
+        fio:
+            type: string
+            length: '100'
+        created:
+            type: datetime
+        phone:
+            type: string
+            length: '20'
+        role:
+            type: string
+            length: '50'
+        department:
+            type: integer
+    lifecycleCallbacks: {  }

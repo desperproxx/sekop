@@ -1,0 +1,33 @@
+{# app/Resources/views/blog/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+
+{% block title %}My cool blog posts{% endblock %}
+
+{% block body %}
+{{ parent() }}
+<div class="infblock">
+  <ul><p>Диапазон по 2-м месяцам</p>
+    <li><div class="button2">Январь</div></li>
+    <li><div class ="button2">Февраль</div></li>
+    <li><div class ="button2">Март</div></li>
+    <li><div class ="button2">Апрель</div></li>
+    <li><div class ="button2">Май</div></li>
+    <li><div class ="button2">Июнь</div></li>
+    <li><div class ="button2">Июль</div></li>
+    <li><div class ="button2">Август</div></li>
+    <li><div class ="button2">Сентябрь</div></li>
+    <li><div class ="button2">Октябрь</div></li>
+    <li><div class ="button2">Ноябрь</div></li>
+    <li><div class ="button2">Декабрь</div></li>
+    <button id="button3" disabled="true">Применить</button>
+  </ul>
+</div>  
+<div id="overview"></div> 
+
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script type ="text/javascript" src="{{ asset('build/highcharts.js') }}"></script>
+
+{% endblock %}

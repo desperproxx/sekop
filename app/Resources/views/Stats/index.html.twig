@@ -6,12 +6,15 @@
 
 {% block body %}
  {{ parent() }}
-
-
+<div class="years">
+<button class="but" id="button">2015</button>
+<button class="but" id="button1">2016</button>
+<button class="but" id="button2">2017</button>
+</div>
  <div id="wrappers">
             <div class="chart">
-                      <table id="data-table" border="1" cellpadding="10" cellspacing="0" summary="The effects of the zombie outbreak on the populations of endangered species from 2012 to 2016">
-                    <caption>Population in thousands</caption>
+                      <table id="data-table" border="1" cellpadding="10" cellspacing="0">
+                    <caption>Количество проданных билетов в течении {{ year }} года</caption>
                     <thead>
                         <tr>
                             <td>&nbsp;</td>
@@ -31,15 +34,33 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>   {% set i=6 %}
-                     		  {% for inf in information %}
-                     		     <th scope="row">{{i}}</th>
-                       		  	{% for infa in inf %}
+                          
+
+
+                        <tr>   
+                        {% set i='' %}
+                          {% for inf in information %}
+                             {% if i!='' %}
+                             <th scope="row">{{i}}</th>
+                                   {% endif %}
+                              {% for infa in inf %}
+                              {% if infa.sum>100000 %}
+                              {% set infa = infa|merge({'sum': '10000'}) %}
+                              {% endif %}
                                 <td>{{ infa.sum }}</td>
-                                {% set i=infa.type %}
+                                    {% for descr in description %}
+
+                                  {% if descr.id==infa.type %}
+                                {% set i=descr.descr %}
+                                {% endif %}
+                                     {% endfor %} 
                                 {% endfor %}
                                 </tr>
                               {% endfor %} 
+
+                          
+
+
                       
                        
                            </tbody>

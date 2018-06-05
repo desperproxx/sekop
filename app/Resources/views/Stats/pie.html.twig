@@ -1,0 +1,42 @@
+{# app/Resources/views/blog/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+
+{% block title %}My cool blog posts{% endblock %}
+
+{% block body %}
+{{ parent() }}
+<div id="stat">
+</div>
+<div class="years">
+  <button class="but" id="pie2015">2015</button>
+  <button class="but" id="pie2016">2016</button>
+  <button class="but" id="pie2017">2017</button>
+</div>
+<div class="in">
+  <div class="head">
+    Экспорт данных
+  </div>
+  <div id="pie_inf">
+
+    <ul>
+      <li><div id="lstmnth"><img src="ex.png" 
+        width="20" height="20" alt="lorem"> Экспорт данных за последний месяц </div></li>
+        <li><div id="alltime"><img src="ex.png" 
+          width="20" height="20" alt="lorem"> Экспорт данных за всё время</div></li>
+          <li><div id="word_alltime"><img src="wo.png" 
+            width="20" height="20" alt="lorem"> Отчёт за всё время</div></li>
+            <li><div id="word_lasttime"><img src="wo.png" 
+              width="20" height="20" alt="lorem"> Отчёт за последний месяц</div></li>
+            </ul>
+
+          </div>
+          <div class="child" id="container" style="min-width: 450px; height: 380px; max-width: 540px;"></div>
+          <div class="child" id="container1" style="min-width: 450px; height: 380px; max-width: 540px;"></div>
+        </div>
+        {% endblock %}
+        {% block javascripts %}
+        {{ parent() }}
+        <script type ="text/javascript" src="{{ asset('build/pie.js') }}"></script>
+
+        {% endblock %}

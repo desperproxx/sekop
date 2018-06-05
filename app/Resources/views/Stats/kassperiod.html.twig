@@ -1,0 +1,32 @@
+{# app/Resources/views/blog/index.html.twig #}
+
+{% block body %}
+{% set sum = 0 %}
+{% set count = 0 %}
+<table>
+<tr>
+  <th>Месяц</th>
+   <th>Сумма</th>
+  <th>Количество проданных билетов</th>
+ 
+</tr>
+{% for post in kassir %}
+<tr>
+<td>{{ post.dat }}</td>
+<td>{{ post.sum }}</td>
+<td>{{ post.summ }}</td>
+</tr>
+{% set sum = sum + post.sum %}
+{% set count = count + post.summ %}
+{% endfor %}
+<td>Итого:</td>
+<td>{{sum}}</td>
+<td>{{ count }}</td>
+</table>
+
+
+{% endblock %}
+ {% block javascripts %}
+
+
+  {% endblock %}

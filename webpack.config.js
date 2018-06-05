@@ -12,6 +12,10 @@ Encore
     .addEntry('app', './assets/js/app.js')
 
     .addEntry('highcharts', './assets/js/highcharts.js')
+
+    .addEntry('pie', './assets/js/pie.js')
+
+    .addEntry('transport', './assets/js/transport.js')
      
   // будет выводиться, как web/build/global.css
     .addStyleEntry('global', './assets/css/global.scss')

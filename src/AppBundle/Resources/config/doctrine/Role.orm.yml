@@ -1,0 +1,16 @@
+AppBundle\Entity\Role:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\RoleRepository
+    id:
+        role:
+            type: string
+            id: true
+            length: '50'
+            unique: true
+    fields:
+        name:
+            type: string
+            length: '100'
+            unique: true
+    lifecycleCallbacks: {  }

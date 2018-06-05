@@ -4,8 +4,19 @@ security:
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        in_memory:
-            memory: ~
+                #in_memory:
+        #    memory:
+        #        users:
+        #            admin:
+        #                password: admin
+        #                roles: 'ROLE_ADMIN'
+        #            user:
+        #                password: user
+        #                roles: 'ROLE_USER1'
+        our_db_provider:
+              entity:
+                  class: AppBundle:Users
+                  property: email
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -15,10 +26,27 @@ security:
 
         main:
             anonymous: ~
+            provider: our_db_provider
             # activate different ways to authenticate
 
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
+            form_login:
+                login_path: login
+                check_path: login
+            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
 
-            # https://symfony.com/doc/current/security/form_login_setup.html
-            #form_login: ~
+            logout:
+                path:                 /logout
+                target:               /login
+                success_handler:      ~
+                invalidate_session:   true
+    access_control:
+    - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/admin, roles: [ROLE_ADMIN]}
+    - { path: ^/afterlogin, roles: [ROLE_SUPER_USER, ROLE_ADMIN,ROLE_DOC_EMP,ROLE_DOC_LEAD,ROLE_STAT_EMP,ROLE_STAT_LEAD] }
+    - { path: ^/menu, roles: [ROLE_SUPER_USER,ROLE_DOC_EMP,ROLE_DOC_LEAD,ROLE_STAT_EMP,ROLE_STAT_LEAD] }
+
+    encoders:
+        AppBundle\Entity\Users:
+            algorithm: md5
+            encode_as_base64: false
+            iterations: 0

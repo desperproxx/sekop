@@ -1,0 +1,3 @@
+.panel-username {
+    text-overflow: ellipsis;width: 140px;overflow: hidden;
+}
